@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
     // المسار العام للـ Dashboard بناءً على الدور
     Route::get('/dashboard', function () {
         $role = auth()->user()->role;
-
+    
         switch ($role) {
             case 'admin':
                 return redirect()->route('admin.dashboard');
@@ -34,7 +34,11 @@ Route::middleware('auth')->group(function () {
             default:
                 return abort(403, 'Unauthorized');
         }
-    })->name('dashboard');
+    })->middleware('auth')->name('dashboard');
+
+   
+    
+    
 
     /**
      * مسارات المدير (Admin)
@@ -92,6 +96,7 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/notifications/{id}/mark-as-read', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
 });
 
+Route::post('/appointments/book', [AppointmentController::class, 'bookAppointment'])->name('appointments.book');
 
 
 });
