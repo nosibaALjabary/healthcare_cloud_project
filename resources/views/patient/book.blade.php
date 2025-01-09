@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-4">
     <h1 class="mb-4">Book Appointment</h1>
-    <form action="{{ route('patient.bookAppointment') }}" method="POST" class="card p-4">
+    <form action="{{ route('appointments.book') }}" method="POST" class="card p-4">
         @csrf
         <div class="mb-3">
             <label for="doctor" class="form-label">Choose Doctor</label>

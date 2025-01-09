@@ -61,7 +61,7 @@ Route::middleware('auth')->group(function () {
      */
     Route::prefix('patient')->name('patient.')->group(function () {
         Route::get('/dashboard', [PatientController::class, 'index'])->name('dashboard');
-        Route::post('/appointments/book', [PatientController::class, 'bookAppointment'])->name('bookAppointment');
+       // Route::post('/appointments/book', [PatientController::class, 'bookAppointment'])->name('bookAppointment');
         Route::get('/files', [PatientController::class, 'viewFiles'])->name('viewFiles');
         Route::post('/files/upload', [PatientController::class, 'uploadMedicalFile'])->name('uploadFile');
         Route::get('/appointments', [PatientController::class, 'appointments'])->name('appointments');
